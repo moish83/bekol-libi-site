@@ -293,7 +293,12 @@ for slug, (title, desc, fn) in CONTENT.items():
     out.write_text(layout(slug, title, desc, fn(base), base), encoding="utf-8")
     print("wrote", out.relative_to(ROOT))
 
-(ROOT / "CNAME").write_text("bekol-libi.co.il\n")
+# Set to True once DNS points at GitHub Pages; until then the site is served at moish83.github.io/bekol-libi-site/
+USE_CUSTOM_DOMAIN = False
+if USE_CUSTOM_DOMAIN:
+    (ROOT / "CNAME").write_text("bekol-libi.co.il\n")
+else:
+    (ROOT / "CNAME").unlink(missing_ok=True)
 (ROOT / ".nojekyll").write_text("")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n")
 urls = "\n".join(f"  <url><loc>{DOMAIN}/{s + '/' if s else ''}</loc></url>" for s, _ in PAGES)
