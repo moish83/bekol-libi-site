@@ -294,7 +294,7 @@ for slug, (title, desc, fn) in CONTENT.items():
     print("wrote", out.relative_to(ROOT))
 
 # Set to True once DNS points at GitHub Pages; until then the site is served at moish83.github.io/bekol-libi-site/
-USE_CUSTOM_DOMAIN = False
+USE_CUSTOM_DOMAIN = True
 if USE_CUSTOM_DOMAIN:
     (ROOT / "CNAME").write_text("bekol-libi.co.il\n")
 else:
