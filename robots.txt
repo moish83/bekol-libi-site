@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bekol-libi.co.il/sitemap.xml
